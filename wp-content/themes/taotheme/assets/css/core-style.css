@@ -553,7 +553,7 @@ img {
     background-color: #3a3a3a;
 }
 
-.navbar-expand-lg .navbar-nav .nav-link {
+.navbar-expand-lg .navbar-nav .nav-link, .menu-menu-top-container a{
     padding-right: 15px;
     padding-left: 15px;
     position: relative;

@@ -16,18 +16,18 @@ get_header(); ?>
         <section class="top-discount-area d-md-flex align-items-center">
             <!-- Single Discount Area -->
             <div class="single-discount-area">
-                <h5>Free Shipping &amp; Returns</h5>
-                <h6><a href="#">BUY NOW</a></h6>
+                <h5>Калькулятор</h5>
+                <h6><a href="#">перейти</a></h6>
             </div>
             <!-- Single Discount Area -->
             <div class="single-discount-area">
-                <h5>20% Discount for all dresses</h5>
-                <h6>USE CODE: Colorlib</h6>
+                <h5>Сделать заказ</h5>
+                <h6><a href="">перейти</a></h6>
             </div>
             <!-- Single Discount Area -->
             <div class="single-discount-area">
-                <h5>20% Discount for students</h5>
-                <h6>USE CODE: Colorlib</h6>
+                <h5>Поисковик</h5>
+                <h6><a href="">перейти</a></h6>
             </div>
         </section>
         <!-- ****** Top Discount Area End ****** -->
@@ -88,17 +88,17 @@ get_header(); ?>
             <!-- Single Catagory -->
             <div class="single_catagory_area d-flex align-items-center bg-img" style="background-image: url(/wp-content/themes/taotheme/assets/img/bg-img/bg-2.jpg);">
                 <div class="catagory-content">
-                    <h6>On Accesories</h6>
-                    <h2>Sale 30%</h2>
-                    <a href="#" class="btn karl-btn">SHOP NOW</a>
+                    <h6>Совместные покупки</h6>
+                    <h2>Экономия до 40%</h2>
+                    <a href="#" class="btn karl-btn">Посмотреть товары</a>
                 </div>
             </div>
             <!-- Single Catagory -->
             <div class="single_catagory_area d-flex align-items-center bg-img" style="background-image: url(/wp-content/themes/taotheme/assets/img/bg-img/bg-3.jpg);">
                 <div class="catagory-content">
-                    <h6>in Bags excepting the new collection</h6>
-                    <h2>Designer bags</h2>
-                    <a href="#" class="btn karl-btn">SHOP NOW</a>
+                    <h6>Индивидуальный заказ</h6>
+                    <!-- <h2>Designer bags</h2> -->
+                    <a href="#" class="btn karl-btn">Заказать</a>
                 </div>
             </div>
         </section>
@@ -180,7 +180,7 @@ get_header(); ?>
                 <div class="row">
                     <div class="col-12">
                         <div class="section_heading text-center">
-                            <h2>New Arrivals</h2>
+                            <h2>Последнее СП</h2>
                         </div>
                     </div>
                 </div>
@@ -188,12 +188,12 @@ get_header(); ?>
 
             <div class="karl-projects-menu mb-100">
                 <div class="text-center portfolio-menu">
-                    <button class="btn active" data-filter="*">ALL</button>
-                    <button class="btn" data-filter=".women">WOMAN</button>
-                    <button class="btn" data-filter=".man">MAN</button>
-                    <button class="btn" data-filter=".access">ACCESSORIES</button>
-                    <button class="btn" data-filter=".shoes">shoes</button>
-                    <button class="btn" data-filter=".kids">KIDS</button>
+                    <button class="btn active" data-filter="*">Все</button>
+                    <button class="btn" data-filter=".women">Сумки</button>
+                    <button class="btn" data-filter=".man">Одежда</button>
+                    <button class="btn" data-filter=".access">Аксесуары</button>
+                    <button class="btn" data-filter=".shoes">Обувь</button>
+                    <button class="btn" data-filter=".kids">Детское</button>
                 </div>
             </div>
 
