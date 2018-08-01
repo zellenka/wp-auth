@@ -1,7 +1,6 @@
 <?php
 /*
-Template Name: СП
-Template Post Type: product
+Template Name: Индивидуальный Заказ
 */
 
 get_header(); ?>
