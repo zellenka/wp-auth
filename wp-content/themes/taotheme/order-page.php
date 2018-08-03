@@ -22,187 +22,168 @@ get_header(); ?>
             </div>
         </div>
         <!-- <<<<<<<<<<<<<<<<<<<< Breadcumb Area End <<<<<<<<<<<<<<<<<<<< -->
-<?php if (have_posts()): while (have_posts()): the_post(); ?>
-        <!-- <<<<<<<<<<<<<<<<<<<< Single Product Details Area Start >>>>>>>>>>>>>>>>>>>>>>>>> -->
-        <section class="single_product_details_area section_padding_0_100">
+
+        <!-- ****** Cart Area Start ****** -->
+        <div class="cart_area section_padding_100 clearfix">
             <div class="container">
                 <div class="row">
-
-                    <div class="col-12 col-md-6">
-                        <div class="single_product_thumb">
-                            <div id="product_details_slider" class="carousel slide" data-ride="carousel">
-							
-                                <ol class="carousel-indicators">
-                                	<?php
-
-										// check if the repeater field has rows of data
-										if( have_rows('product_img-field') ):
-
-										 	// loop through the rows of data
-										    while ( have_rows('product_img-field') ) : the_row(); ?>
-                                    <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url(<?php echo the_sub_field('product_img'); ?>);">
-                                    </li>
-									<?php                                        endwhile;
-
-									else :
-
-									    // no rows found
-
-									endif;
-
-									?>
-                                 
-                                </ol>
-
-                                <div class="carousel-inner">
-									<?php
-
-										// check if the repeater field has rows of data
-										if( have_rows('product_img-field') ):
-
-										 	// loop through the rows of data
-										    while ( have_rows('product_img-field') ) : the_row(); ?>
-                                    <div class="carousel-item">
-                                        <a class="gallery_img" href="<?php echo the_sub_field('product_img'); ?>">
-                                        <img class="d-block w-100" src="<?php echo the_sub_field('product_img'); ?>" alt="First slide">
-                                    </a>
-                                    </div>
-									<?php                                        endwhile;
-
-									else :
-
-									    // no rows found
-
-									endif;
-
-									?>
-                                    
-                                </div>
+                    <div class="col-12">
+                        <form class="cart-table clearfix">
+                            <div class="cart-table__top">
+                                <input type="text" name="name" class="cart-table__input" placeholder="Имя">
+                                <input type="email" name="email" class="cart-table__input" placeholder="email">
+                                <input type="text" name="phone" class="cart-table__input" placeholder="телефон">
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <div class="single_product_desc">
-
-                            <h4 class="title"><?php the_title(); ?></h4>
-
-                            <h4 class="price"><?php the_field('prod_price'); ?> грн.</h4>
-
-                            <!-- <p class="available">Available: <span class="text-muted">In Stock</span></p> -->
-
-                            <div class="single_product_ratings mb-15">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>Фото</th>
+                                        <th>Ссылка на сайте таобао</th>
+                                        <th>Цена на сайте</th>
+                                        <th>Колличество</th>
+                                        <th>Комментарий</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="order-row">
+                                        <td class="cart_product_img d-flex align-items-center">
+                                          
+                                            <a href="#"><img src="" alt="Product"></a>
+                                           
+                                        </td>
+                                        <td class="cart-table_td">
+                                        
+                                            <input type="url" name="link" class="cart-table__input input_name">
+                                        </td>
+                                        <td class="price cart-table_td"><input type="text" name="price" class="cart-table__input input_name"></td>
+                                        <td class="qty">
+                                            <div class="quantity">
+                                                <span class="qty-minus""><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                                <input type="number" class="qty-text input_name" id="qty" step="1" min="1" max="99" name="quantity" value="1">
+                                                <span class="qty-plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                            </div>
+                                        </td>
+                                        <td ><textarea name="comment" id="" class="cart-table__input input_name"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart_product_img d-flex align-items-center">
+                                          
+                                            <a href="#"><img src="/wp-content/themes/taotheme/assets/img/product-img/product-9.jpg" alt="Product"></a>
+                                           
+                                        </td>
+                                        <td class="cart-table_td">
+                                        
+                                            <input type="url" name="link" class="cart-table__input">
+                                        </td>
+                                        <td class="price cart-table_td"><input type="text" name="price" class="cart-table__input" placeholder="в юанях"></td>
+                                        <td class="qty">
+                                            <div class="quantity">
+                                                <span class="qty-minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">
+                                                <span class="qty-plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                            </div>
+                                        </td>
+                                        <td><textarea name="comment" id="" class="cart-table__input"></textarea></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="cart-table__buttons">
+                                <button type="button" id="add-row" class="cart-table__add">Добавить поле для закзаза</button>
+                                <button type="submit" class="cart-table__button">Заказать</button>
                             </div>
+                        </form>
+<script>
 
-                            <div class="widget size mb-50">
-                                <h6 class="widget-title">Доступные размеры</h6>
-                                <div class="widget-desc">
-                                    <ul>
-                                    	<?php
+    jQuery( document ).ready(function($) {
 
-										// check if the repeater field has rows of data
-										if( have_rows('size_field') ):
+        $( "#add-row" ).on( "click", function() {
 
-										 	// loop through the rows of data
-										    while ( have_rows('size_field') ) : the_row(); ?>
-                                        <li><a href="#"><?php the_sub_field('size_number'); ?></a></li>
-                                        <?php                                        endwhile;
+            $(".order-row").clone().appendTo(".table tbody").removeClass("order-row");
 
-									else :
+            $( ".input_name" ).each(function(index) {
 
-									    // no rows found
+                var atr =$(this).attr('name');
+                
+                var atr =$(this).attr('name', atr + index);
+});
 
-									endif;
 
-									?>
-                                     
-                                    </ul>
-                                </div>
+
+
+        });
+
+    });
+
+</script>
+<!-- 
+                        <div class="cart-footer d-flex mt-30">
+                            <div class="back-to-shop w-50">
+                                <a href="shop-grid-left-sidebar.html">Continue shooping</a>
                             </div>
-                            <div class="widget size mb-50">
-                                <h6 class="widget-title">Доступные цвета</h6>
-                                <div class="widget-desc">
-                                    <ul>
-                                    	<?php
-
-										// check if the repeater field has rows of data
-										if( have_rows('colors_field') ):
-
-										 	// loop through the rows of data
-										    while ( have_rows('colors_field') ) : the_row(); ?>
-                                        <li><a href="#" style="background-color:<?php the_sub_field('color_product'); ?>"></a></li>
-                                        <?php                                        endwhile;
-
-									else :
-
-									    // no rows found
-
-									endif;
-
-									?>
-                                     
-                                    </ul>
-                                </div>
+                            <div class="update-checkout w-50 text-right">
+                                <a href="#">clear cart</a>
+                                <a href="#">Update cart</a>
                             </div>
-                             
-                                <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn cart-submit d-block">Купить в один клик</button>
-                           
-                            <div id="accordion" role="tablist">
-                                <div class="card">
-                                    <div class="card-header" role="tab" id="headingOne">
-                                        <h6 class="mb-0">
-                                            <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Доп информация</a>
-                                        </h6>
-                                    </div>
+                        </div> -->
 
-                                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integ er bibendum sodales arcu id te mpus. Ut consectetur lacus.</p>
-                                            <p>Approx length 66cm/26" (Based on a UK size 8 sample) Mixed fibres</p>
-                                            <p>The Model wears a UK size 8/ EU size 36/ US size 4 and her height is 5'8"</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" role="tab" id="headingTwo">
-                                        <h6 class="mb-0">
-                                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Еще информация</a>
-                                        </h6>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quis in veritatis officia inventore, tempore provident dignissimos nemo, nulla quaerat. Quibusdam non, eos, voluptatem reprehenderit hic nam! Laboriosam, sapiente! Praesentium.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia magnam laborum eaque.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" role="tab" id="headingThree">
-                                        <h6 class="mb-0">
-                                            <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Тоже информация</a>
-                                        </h6>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quo sint repudiandae suscipit ab soluta delectus voluptate, vero vitae, tempore maxime rerum iste dolorem mollitia perferendis distinctio. Quibusdam laboriosam rerum distinctio. Repudiandae fugit odit, sequi id!</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae qui maxime consequatur laudantium temporibus ad et. A optio inventore deleniti ipsa.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
+
+               <!--  <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="coupon-code-area mt-70">
+                            <div class="cart-page-heading">
+                                <h5>Cupon code</h5>
+                                <p>Enter your cupone code</p>
+                            </div>
+                            <form action="#">
+                                <input type="search" name="search" placeholder="#569ab15">
+                                <button type="submit">Apply</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="shipping-method-area mt-70">
+                            <div class="cart-page-heading">
+                                <h5>Shipping method</h5>
+                                <p>Select the one you want</p>
+                            </div>
+
+                            <div class="custom-control custom-radio mb-30">
+                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                <label class="custom-control-label d-flex align-items-center justify-content-between" for="customRadio1"><span>Next day delivery</span><span>$4.99</span></label>
+                            </div>
+
+                            <div class="custom-control custom-radio mb-30">
+                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                <label class="custom-control-label d-flex align-items-center justify-content-between" for="customRadio2"><span>Standard delivery</span><span>$1.99</span></label>
+                            </div>
+
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                <label class="custom-control-label d-flex align-items-center justify-content-between" for="customRadio3"><span>Personal Pickup</span><span>Free</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="cart-total-area mt-70">
+                            <div class="cart-page-heading">
+                                <h5>Cart total</h5>
+                                <p>Final info</p>
+                            </div>
+
+                            <ul class="cart-total-chart">
+                                <li><span>Subtotal</span> <span>$59.90</span></li>
+                                <li><span>Shipping</span> <span>Free</span></li>
+                                <li><span><strong>Total</strong></span> <span><strong>$59.90</strong></span></li>
+                            </ul>
+                            <a href="checkout.html" class="btn karl-checkout-btn">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div> -->
             </div>
-        </section>
-        <!-- <<<<<<<<<<<<<<<<<<<< Single Product Details Area End >>>>>>>>>>>>>>>>>>>>>>>>> -->
-<?php endwhile; endif; ?>
+        </div>
+        <!-- ****** Cart Area End ****** -->
 
 
         <section class="you_may_like_area clearfix">
@@ -210,7 +191,7 @@ get_header(); ?>
                 <div class="row">
                     <div class="col-12">
                         <div class="section_heading text-center">
-                            <h2>Таже категория</h2>
+                            <h2>Новые товары СП</h2>
                         </div>
                     </div>
                 </div>
@@ -250,13 +231,13 @@ get_header(); ?>
                                 <div class="product-img">
                                 	<?php
 
-$rows = get_field('product_img-field' ); // get all the rows
+                                        $rows = get_field('product_img-field' ); // get all the rows
 
-$first_row = $rows[0]; // get the first row
-$first_row_image = $first_row['product_img' ]; // get the sub field value 
+                                        $first_row = $rows[0]; // get the first row
+                                        $first_row_image = $first_row['product_img' ]; // get the sub field value 
 
-?>
-<img src="<?php echo $first_row_image; ?>" />
+                                        ?>
+                                        <img src="<?php echo $first_row_image; ?>" />
                                     
                                     <div class="product-quicview">
 
@@ -280,91 +261,9 @@ $first_row_image = $first_row['product_img' ]; // get the sub field value
             </div>
         </section>
 
-		<?php if (have_posts()): while (have_posts()): the_post(); ?>
-		<?php 
-
-
-			// Previous/next post navigation.
-			the_post_navigation( array(
-				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'twentyfifteen' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Next post:', 'twentyfifteen' ) . '</span> ' .
-					'<span class="post-title">%title</span>',
-				'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'twentyfifteen' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Previous post:', 'twentyfifteen' ) . '</span> ' .
-					'<span class="post-title">%title</span>',
-			) );
-
-		// End the loop.
-		endwhile; endif;
-		?>
+<script type="text/javascript" src="http://wp-auth/wp-content/themes/taotheme/assets/js/form.js"></script>
 
 
 
 <?php get_footer(); ?>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Hidden Required Fields -->
-  <input type="hidden" name="project_name" value="Site Name">
-  <input type="hidden" name="admin_email" value="admin@mail.com">
-  <input type="hidden" name="form_subject" value="Form Subject">
-  <!-- END Hidden Required Fields -->
- 
-  <p><?php the_title(); ?></p>
-  <p><select>
-  	<?php
-
-		// check if the repeater field has rows of data
-		if( have_rows('size_field') ):
-
-		 	// loop through the rows of data
-		    while ( have_rows('size_field') ) : the_row(); ?>
-        <option><?php the_sub_field('size_number'); ?></option>
-        <?php                                        endwhile;
-
-		else :
-
-		    // no rows found
-
-		endif;
-
-	?>
-	</select></p>
-	  <p><select>
-  	<?php
-
-		// check if the repeater field has rows of data
-		if( have_rows('colors_field') ):
-
-		 	// loop through the rows of data
-		    while ( have_rows('colors_field') ) : the_row(); ?>
-        <option style="background-color:<?php the_sub_field('color_product'); ?>" ></option>
-        <?php                                        endwhile;
-
-		else :
-
-		    // no rows found
-
-		endif;
-
-	?>
-	</select></p>
- <p> <input type="text" name="E-mail" placeholder="Ваш почта" required></p>
- <p><textarea name="" cols="30" rows="10"></textarea></p>
-
-
-  <button>Заказать</button>
-      </div>
-
-    </div>
-  </div>
-</div>
